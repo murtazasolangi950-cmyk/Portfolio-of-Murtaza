@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Murtaza Wali — Etsy Store Manager & E-commerce Growth Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold-deep:    #7D5A1E;
+    --gold-rich:    #B8860B;
+    --gold-bright:  #D4A017;
+    --gold-light:   #F0C040;
+    --gold-pale:    #FAF0D0;
+    --gold-shine:   #FFE066;
+    --black-deep:   #0D0C0A;
+    --black-mid:    #1A1814;
+    --black-soft:   #2A2620;
+    --off-white:    #F8F4EC;
+    --cream:        #FDF8EF;
+    --text-main:    #1A1814;
+    --text-muted:   #5C5444;
+    --text-light:   #8C7E68;
+    --border:       rgba(184,134,11,0.3);
+    --border-strong:rgba(184,134,11,0.6);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--black-deep);
+    color: var(--off-white);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,12,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 300; letter-spacing: 0.12em;
+    color: var(--gold-light);
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-light);
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; text-align: center;
+    padding: 6rem 2rem 4rem;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(184,134,11,0.12) 0%, transparent 70%),
+      linear-gradient(180deg, #0D0C0A 0%, #1A1814 60%, #0D0C0A 100%);
+  }
+  .hero-ornament {
+    font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold-rich); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem; justify-content: center;
+  }
+  .hero-ornament::before, .hero-ornament::after {
+    content: ''; flex: 1; max-width: 80px; height: 1px; background: var(--gold-rich);
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 300; line-height: 1.05;
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-shine) 50%, var(--gold-bright) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .hero-title {
+    font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 2.5rem; font-weight: 400;
+  }
+  .hero-divider {
+    width: 60px; height: 1px; background: var(--gold-rich);
+    margin: 0 auto 2.5rem;
+  }
+  .hero-summary {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-style: italic; font-weight: 300;
+    color: #D4C4A0; max-width: 700px; line-height: 1.8; margin: 0 auto 3rem;
+  }
+  .hero-contacts {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    justify-content: center; margin-bottom: 3rem;
+  }
+  .hero-contact-item {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-light); display: flex; align-items: center; gap: 0.5rem;
+  }
+  .hero-contact-item span { color: var(--gold-bright); font-size: 0.85rem; }
+  .hero-cta {
+    display: inline-block; padding: 0.85rem 2.5rem;
+    border: 1px solid var(--gold-rich); color: var(--gold-light);
+    text-decoration: none; font-size: 0.68rem; letter-spacing: 0.25em;
+    text-transform: uppercase; transition: all 0.3s; font-weight: 500;
+  }
+  .hero-cta:hover { background: var(--gold-rich); color: var(--black-deep); }
+
+  /* ─── METRICS ─── */
+  #metrics {
+    padding: 5rem 3rem;
+    background: linear-gradient(180deg, #0D0C0A, #12100D);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .metrics-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2px;
+  }
+  .metric-card {
+    text-align: center; padding: 2.5rem 1.5rem;
+    border: 1px solid var(--border);
+    background: rgba(184,134,11,0.04);
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .metric-card::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 40px; height: 1px; background: var(--gold-bright);
+  }
+  .metric-card:hover { background: rgba(184,134,11,0.09); }
+  .metric-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 300; line-height: 1;
+    color: var(--gold-light); margin-bottom: 0.5rem;
+  }
+  .metric-label {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--text-light); line-height: 1.5;
+  }
+
+  /* ─── SECTIONS SHARED ─── */
+  section { padding: 6rem 3rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header { margin-bottom: 4rem; }
+  .section-eyebrow {
+    font-size: 0.62rem; letter-spacing: 0.38em; text-transform: uppercase;
+    color: var(--gold-rich); margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-eyebrow::after { content: ''; flex: 1; max-width: 50px; height: 1px; background: var(--gold-deep); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;
+    color: var(--gold-light); line-height: 1.2;
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { background: #12100D; }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-category {
+    border: 1px solid var(--border); padding: 2rem;
+    background: rgba(184,134,11,0.03); transition: border-color 0.3s;
+  }
+  .skill-category:hover { border-color: var(--border-strong); }
+  .skill-cat-title {
+    font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold-bright); margin-bottom: 1.2rem;
+    padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+  }
+  .skill-item {
+    font-size: 0.8rem; color: #C8B898; padding: 0.3rem 0; letter-spacing: 0.05em;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .skill-item::before {
+    content: ''; width: 4px; height: 4px;
+    background: var(--gold-rich); border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--black-deep); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(180deg, transparent, var(--gold-deep) 10%, var(--gold-deep) 90%, transparent);
+  }
+  .timeline-item { padding: 0 0 3.5rem 3rem; position: relative; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -4px; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--gold-rich); border: 2px solid var(--black-deep);
+    box-shadow: 0 0 0 2px var(--gold-rich);
+  }
+  .timeline-meta {
+    display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 0.5rem;
+  }
+  .timeline-date {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold-rich); font-weight: 500;
+  }
+  .timeline-badge {
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.2rem 0.6rem; border: 1px solid var(--border); color: var(--text-light);
+  }
+  .timeline-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 300; color: var(--gold-light);
+    margin-bottom: 0.2rem; line-height: 1.2;
+  }
+  .timeline-role {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 1rem;
+  }
+  .timeline-bullets { list-style: none; }
+  .timeline-bullets li {
+    font-size: 0.82rem; color: #B0A090; line-height: 1.7;
+    padding: 0.2rem 0; display: flex; gap: 0.6rem; align-items: flex-start;
+  }
+  .timeline-bullets li::before { content: '—'; color: var(--gold-deep); flex-shrink: 0; }
+
+  /* ─── ACHIEVEMENTS ─── */
+  #achievements { background: #0F0E0B; }
+  .achievements-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .achievement-card {
+    border: 1px solid var(--border); padding: 2rem;
+    background: rgba(184,134,11,0.03);
+    position: relative; overflow: hidden; transition: all 0.3s;
+  }
+  .achievement-card:hover { background: rgba(184,134,11,0.09); border-color: var(--border-strong); transform: translateY(-3px); }
+  .achievement-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; background: var(--gold-rich);
+  }
+  .achievement-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: rgba(184,134,11,0.4); margin-bottom: 0.75rem; line-height: 1;
+  }
+  .achievement-text {
+    font-size: 0.85rem; color: #C8B898; line-height: 1.6;
+  }
+  .achievement-text strong { color: var(--gold-light); font-weight: 500; }
+
+  /* ─── TOOLS ─── */
+  #tools { background: #12100D; }
+  .tools-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1px; border: 1px solid var(--border);
+  }
+  .tool-item {
+    padding: 1.75rem 1rem; text-align: center;
+    background: rgba(184,134,11,0.03); transition: background 0.25s;
+    border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .tool-item:hover { background: rgba(184,134,11,0.1); }
+  .tool-icon { font-size: 1.4rem; margin-bottom: 0.5rem; display: block; }
+  .tool-name {
+    font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light);
+  }
+
+  /* ─── EDUCATION ─── */
+  #education { background: var(--black-deep); }
+  .edu-card {
+    border: 1px solid var(--border); padding: 2.5rem 3rem;
+    background: rgba(184,134,11,0.03); max-width: 640px;
+  }
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: var(--gold-light); margin-bottom: 0.4rem;
+  }
+  .edu-school {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold-rich); margin-bottom: 0.5rem;
+  }
+  .edu-year { font-size: 0.75rem; color: var(--text-light); }
+
+  /* ─── LANGUAGES ─── */
+  #languages { background: #0F0E0B; padding: 4rem 3rem; }
+  .lang-grid { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .lang-card {
+    border: 1px solid var(--border); padding: 1.75rem 2.5rem;
+    background: rgba(184,134,11,0.03); text-align: center; min-width: 180px;
+  }
+  .lang-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: var(--gold-light); margin-bottom: 0.25rem;
+  }
+  .lang-level { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    padding: 6rem 3rem;
+    background: linear-gradient(180deg, #0D0C0A 0%, #12100D 100%);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300;
+    color: var(--gold-light); margin-bottom: 1rem;
+  }
+  .contact-subtitle {
+    font-size: 0.8rem; letter-spacing: 0.15em; color: var(--text-light);
+    margin-bottom: 3rem; text-transform: uppercase;
+  }
+  .contact-info { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 3rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    text-decoration: none; color: var(--gold-light);
+    font-size: 0.8rem; border: 1px solid var(--border);
+    padding: 0.75rem 1.5rem; transition: all 0.3s;
+  }
+  .contact-link:hover { background: rgba(184,134,11,0.15); border-color: var(--gold-rich); }
+  .contact-link span { color: var(--gold-rich); }
+  .footer-note {
+    font-size: 0.65rem; color: var(--text-light); letter-spacing: 0.15em;
+    text-transform: uppercase; margin-top: 4rem;
+    border-top: 1px solid var(--border); padding-top: 2rem;
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 700px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 4rem 1.5rem; }
+    #metrics { padding: 3.5rem 1.5rem; }
+    .timeline-item { padding-left: 2rem; }
+    .edu-card { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Murtaza Wali</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-ornament">Etsy Store Manager &amp; E-commerce Growth Specialist</div>
+  <h1 class="hero-name">Murtaza Wali</h1>
+  <p class="hero-title">5+ Years Scaling Etsy Operations &nbsp;·&nbsp; SEO &nbsp;·&nbsp; CRO &nbsp;·&nbsp; Team Leadership</p>
+  <div class="hero-divider"></div>
+  <p class="hero-summary">
+    Turning underperforming Etsy stores into top-ranked, high-converting shops through data-driven SEO,
+    operational excellence, and high-performing remote teams — from the first search click to the final delivery.
+  </p>
+  <div class="hero-contacts">
+    <div class="hero-contact-item"><span>✉</span> murtazasolangi947@gmail.com</div>
+    <div class="hero-contact-item"><span>☏</span> +92 355 509 3950</div>
+    <div class="hero-contact-item"><span>⌖</span> Gilgit-Baltistan, Pakistan</div>
+    <div class="hero-contact-item"><span>in</span> linkedin.com/in/murtazawali-52426b260</div>
+  </div>
+  <a href="#contact" class="hero-cta">Get in Touch</a>
+</section>
+
+<!-- METRICS -->
+<div id="metrics">
+  <div class="metrics-grid">
+    <div class="metric-card reveal">
+      <div class="metric-number">3.8%</div>
+      <div class="metric-label">Conversion Rate<br>(up from 1.2%)</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="metric-number">1,500+</div>
+      <div class="metric-label">Orders Managed Monthly</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="metric-number">99%</div>
+      <div class="metric-label">Fulfillment Accuracy</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="metric-number">4.9</div>
+      <div class="metric-label">Average Store Rating</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="metric-number">60%</div>
+      <div class="metric-label">Organic Traffic Increase</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="metric-number">10×</div>
+      <div class="metric-label">Star Seller Badge Months</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Core Competencies</p>
+      <h2 class="section-title">Skills & Expertise</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category reveal">
+        <div class="skill-cat-title">E-commerce & SEO</div>
+        <div class="skill-item">Etsy SEO — Titles, Tags & Attributes</div>
+        <div class="skill-item">Etsy Algorithm Expertise</div>
+        <div class="skill-item">Conversion Rate Optimisation (CRO)</div>
+        <div class="skill-item">Organic Traffic Growth Strategies</div>
+        <div class="skill-item">Marketplace Listing Optimisation</div>
+        <div class="skill-item">Market & Competitor Research</div>
+      </div>
+      <div class="skill-category reveal">
+        <div class="skill-cat-title">Operations & Fulfilment</div>
+        <div class="skill-item">CJ Dropshipping & Printify Automation</div>
+        <div class="skill-item">Order Fulfilment (1,500+/month)</div>
+        <div class="skill-item">Team Leadership & Workflow Management</div>
+        <div class="skill-item">SOP Development & Documentation</div>
+        <div class="skill-item">Multi-shop Simultaneous Management</div>
+        <div class="skill-item">24/7 Store Activity Management</div>
+      </div>
+      <div class="skill-category reveal">
+        <div class="skill-cat-title">Research & Analytics</div>
+        <div class="skill-item">EverBee Product Research</div>
+        <div class="skill-item">Alura Market Analysis</div>
+        <div class="skill-item">Niche & Trend Identification</div>
+        <div class="skill-item">Data-Driven Product Sourcing</div>
+        <div class="skill-item">Low-Competition, High-Demand Targeting</div>
+        <div class="skill-item">Revenue Growth Monitoring</div>
+      </div>
+      <div class="skill-category reveal">
+        <div class="skill-cat-title">Customer & Team</div>
+        <div class="skill-item">Customer Support & Retention</div>
+        <div class="skill-item">98%+ Positive Feedback Management</div>
+        <div class="skill-item">Remote Team Building (VAs, Designers)</div>
+        <div class="skill-item">Cross-functional Team Leadership</div>
+        <div class="skill-item">Shop Audit & Transformation</div>
+        <div class="skill-item">Client Store Management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Work History</p>
+      <h2 class="section-title">Professional Experience</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-meta">
+          <span class="timeline-date">Jan 2021 – Present</span>
+          <span class="timeline-badge">Current</span>
+        </div>
+        <div class="timeline-company">Freelancer.com</div>
+        <div class="timeline-role">E-commerce Team Lead & Operations Manager</div>
+        <ul class="timeline-bullets">
+          <li>Led a cross-functional team of designers, virtual assistants, and customer support agents to scale Etsy store operations</li>
+          <li>Implemented structured workflows and data-driven product sourcing strategies, achieving a 98%+ positive feedback rate</li>
+          <li>Bridged high-level strategy with daily execution to ensure consistent month-over-month revenue growth</li>
+          <li>Managed 24/7 store activity across multiple Etsy shops simultaneously</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-meta">
+          <span class="timeline-date">2022 – 2025</span>
+          <span class="timeline-badge">Self-Employed</span>
+        </div>
+        <div class="timeline-company">Senior Store Manager</div>
+        <div class="timeline-role">Etsy Store Management — Self-Employed</div>
+        <ul class="timeline-bullets">
+          <li>Overhauled a stagnant jewelry shop, increasing conversion rates from 1.2% to 3.8% within just 6 months</li>
+          <li>Reduced order processing time by 35% by integrating CJ Dropshipping and Printify automation</li>
+          <li>Handled 1,500+ orders monthly maintaining 99% fulfillment accuracy throughout</li>
+          <li>Maintained top-tier seller metrics and customer satisfaction ratings consistently</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-meta">
+          <span class="timeline-date">2020 – 2022</span>
+          <span class="timeline-badge">Self-Employed</span>
+        </div>
+        <div class="timeline-company">SEO & E-commerce Specialist</div>
+        <div class="timeline-role">Etsy SEO & Growth — Self-Employed</div>
+        <ul class="timeline-bullets">
+          <li>Used EverBee and Alura to identify 12 "low-competition, high-demand" product trends, producing a 60% spike in organic traffic</li>
+          <li>Optimised title-tag synergy, listing attributes, and shop authority — moving listings from page 50 to page 1 of Etsy search</li>
+          <li>Maintained a 4.9-star average rating across all managed shops</li>
+          <li>Secured the "Star Seller" badge for 10 consecutive months across client stores</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-meta">
+          <span class="timeline-date">2019 – 2020</span>
+          <span class="timeline-badge">Self-Employed</span>
+        </div>
+        <div class="timeline-company">Shop Transformation Specialist</div>
+        <div class="timeline-role">Etsy Shop Rebuilds — Self-Employed</div>
+        <ul class="timeline-bullets">
+          <li>Audited and rebuilt underperforming Etsy shops from the ground up</li>
+          <li>Developed foundational SOPs for listing creation, customer communication, and order management</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Milestones</p>
+      <h2 class="section-title">Key Achievements</h2>
+    </div>
+    <div class="achievements-grid">
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">◈</div>
+        <div class="achievement-text">
+          <strong>Tripled store conversion rate</strong> from 1.2% to 3.8% within 6 months for a jewelry Etsy shop — a 217% improvement.
+        </div>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">◈</div>
+        <div class="achievement-text">
+          Earned the <strong>"Star Seller" badge</strong> for 10 consecutive months across managed stores, demonstrating sustained excellence.
+        </div>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">◈</div>
+        <div class="achievement-text">
+          Moved <strong>multiple product listings from page 50 to page 1</strong> of Etsy organic search through strategic SEO optimisation.
+        </div>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">◈</div>
+        <div class="achievement-text">
+          <strong>Cut order processing time by 35%</strong> through end-to-end dropshipping workflow automation with CJ and Printify.
+        </div>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">◈</div>
+        <div class="achievement-text">
+          <strong>Built and managed a full remote team</strong> — designers, VAs, and support agents — for 24/7 multi-shop operations.
+        </div>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">◈</div>
+        <div class="achievement-text">
+          Identified <strong>12 high-demand product trends</strong> using EverBee & Alura, driving a 60% spike in organic traffic.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Technical Proficiency</p>
+      <h2 class="section-title">Tools & Platforms</h2>
+    </div>
+    <div class="tools-grid reveal">
+      <div class="tool-item">
+        <span class="tool-icon">▣</span>
+        <div class="tool-name">Etsy Platform</div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">▣</span>
+        <div class="tool-name">EverBee</div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">▣</span>
+        <div class="tool-name">Alura</div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">▣</span>
+        <div class="tool-name">CJ Dropshipping</div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">▣</span>
+        <div class="tool-name">Printify</div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">▣</span>
+        <div class="tool-name">Freelancer.com</div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">▣</span>
+        <div class="tool-name">SEO Optimisation</div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">▣</span>
+        <div class="tool-name">CRO Analytics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Academic Background</p>
+      <h2 class="section-title">Education</h2>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">Bachelor's Degree — Liberal Arts & Sciences</div>
+      <div class="edu-school">Karakoram International University (KIU)</div>
+      <div class="edu-year">September 2021 – July 2024 &nbsp;·&nbsp; Gilgit-Baltistan, Pakistan</div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<div id="languages">
+  <div class="section-inner">
+    <div class="section-header reveal" style="margin-bottom:2rem;">
+      <p class="section-eyebrow">Communication</p>
+      <h2 class="section-title">Languages</h2>
+    </div>
+    <div class="lang-grid">
+      <div class="lang-card reveal">
+        <div class="lang-name">Urdu</div>
+        <div class="lang-level">Native</div>
+      </div>
+      <div class="lang-card reveal">
+        <div class="lang-name">English</div>
+        <div class="lang-level">Professional Working Proficiency</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="hero-ornament" style="justify-content:center;">Available for New Opportunities</div>
+    <h2 class="contact-title">Let's Work Together</h2>
+    <p class="contact-subtitle">Open to freelance projects & full-time store management roles</p>
+    <div class="contact-info">
+      <a href="mailto:murtazasolangi947@gmail.com" class="contact-link">
+        <span>✉</span> murtazasolangi947@gmail.com
+      </a>
+      <a href="tel:+923555093950" class="contact-link">
+        <span>☏</span> +92 355 509 3950
+      </a>
+      <a href="https://linkedin.com/in/murtazawali-52426b260" target="_blank" class="contact-link">
+        <span>in</span> LinkedIn Profile
+      </a>
+    </div>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:#D4C4A0; max-width:520px; margin:0 auto;">
+      "From the first search click to the final delivery — scaling Etsy brands with data, strategy, and operational excellence."
+    </p>
+    <div class="footer-note">
+      © 2025 Murtaza Wali &nbsp;·&nbsp; Etsy Store Manager & E-commerce Growth Specialist &nbsp;·&nbsp; Pakistan
+    </div>
+  </div>
+</section>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
